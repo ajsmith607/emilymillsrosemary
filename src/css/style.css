@@ -1,0 +1,358 @@
+/* ── Scale & rhythm ─────────────────────────────────────────────── */
+:root {
+  --scale: 1.25;
+}
+
+html {
+  font-size: calc(16px * var(--scale));
+}
+
+/* ── Custom properties ──────────────────────────────────────────── */
+:root {
+  --rhythm: 1.7rem;
+
+  --color-bg:      #F2EFE8;
+  --color-fg:      #5A5E6E;
+  --color-h1:      #6B8E7F;
+  --color-h2:      #7B8EC8;
+  --color-accent1: #8E6B7A;
+  --color-accent2: #C8B87B;
+  --color-subtle:  #D8D4CB;
+
+  --max-width: 38rem;
+}
+
+/* ── Reset ──────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ───────────────────────────────────────────────────────── */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: var(--rhythm);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--rhythm);
+}
+
+/* ── Font ───────────────────────────────────────────────────────── */
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("/fonts/CormorantGaramond-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ── Headings ───────────────────────────────────────────────────── */
+h1 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-h1);
+  font-size: calc(2 * var(--rhythm));
+  line-height: calc(2.5 * var(--rhythm));
+  margin-top: calc(2 * var(--rhythm));
+  margin-bottom: calc(0.25 * var(--rhythm));
+  text-transform: lowercase;
+}
+
+h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: var(--color-h2);
+  font-size: 0.7rem;
+  line-height: var(--rhythm);
+  margin-top: 0;
+  margin-bottom: var(--rhythm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h3, h4, h5, h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: var(--rhythm);
+  margin-top: calc(1.7 * var(--rhythm));
+  margin-bottom: calc(0.5 * var(--rhythm));
+}
+
+/* ── Body text ──────────────────────────────────────────────────── */
+p {
+  margin-bottom: var(--rhythm);
+}
+
+a {
+  color: var(--color-h2);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-h1);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-h2);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+em, i {
+  font-style: italic;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+/* ── Lists ──────────────────────────────────────────────────────── */
+ul, ol {
+  margin-bottom: var(--rhythm);
+  padding-left: calc(1.5 * var(--rhythm));
+}
+
+li {
+  margin-bottom: calc(0.25 * var(--rhythm));
+  line-height: var(--rhythm);
+}
+
+/* ── Tables ─────────────────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--rhythm);
+  font-size: 0.9rem;
+}
+
+th {
+  text-align: left;
+  font-weight: 600;
+  padding: calc(0.4 * var(--rhythm)) calc(0.5 * var(--rhythm));
+  border-bottom: 2px solid var(--color-subtle);
+}
+
+td {
+  padding: calc(0.4 * var(--rhythm)) calc(0.5 * var(--rhythm));
+  border-bottom: 1px solid var(--color-subtle);
+}
+
+tr:nth-child(even) td {
+  background: rgba(42, 46, 58, 0.04);
+}
+
+/* ── Code ───────────────────────────────────────────────────────── */
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.875em;
+  background: rgba(42, 46, 58, 0.06);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+}
+
+pre {
+  margin-bottom: var(--rhythm);
+  padding: var(--rhythm);
+  background: rgba(42, 46, 58, 0.06);
+  border-radius: 4px;
+  overflow-x: auto;
+  line-height: calc(1.5 * var(--rhythm));
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+/* ── Blockquote ─────────────────────────────────────────────────── */
+blockquote {
+  margin: var(--rhythm) 0;
+  padding-left: var(--rhythm);
+  border-left: 3px solid var(--color-subtle);
+  font-style: italic;
+  color: color-mix(in srgb, var(--color-fg) 70%, var(--color-bg));
+}
+
+/* ── Images ─────────────────────────────────────────────────────── */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: var(--rhythm);
+}
+
+/* ── Forms ──────────────────────────────────────────────────────── */
+label {
+  display: block;
+  margin-bottom: calc(0.25 * var(--rhythm));
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+input, textarea, select {
+  display: block;
+  width: 100%;
+  padding: calc(0.4 * var(--rhythm)) calc(0.5 * var(--rhythm));
+  margin-bottom: var(--rhythm);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: var(--rhythm);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-subtle);
+  border-radius: 3px;
+  appearance: none;
+}
+
+input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-h2);
+  outline-offset: 1px;
+}
+
+button {
+  display: inline-block;
+  padding: calc(0.4 * var(--rhythm)) var(--rhythm);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-bg);
+  background: var(--color-fg);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  line-height: var(--rhythm);
+}
+
+button:hover {
+  background: var(--color-h1);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--color-h2);
+  outline-offset: 2px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+header {
+  padding: var(--rhythm) 0;
+  min-height: calc(3 * var(--rhythm));
+}
+
+header nav ul {
+  display: flex;
+  gap: var(--rhythm);
+  list-style: none;
+  padding: 0;
+}
+
+header nav a,
+header nav span {
+  color: var(--color-fg);
+  text-decoration: none;
+  font-size: 0.875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+header nav a:hover {
+  color: var(--color-h1);
+}
+
+/* ── Main ───────────────────────────────────────────────────────── */
+main {
+  padding: calc(2 * var(--rhythm)) 0;
+}
+
+main > h1 {
+  font-size: calc(3 * var(--rhythm));
+  line-height: calc(3.5 * var(--rhythm));
+}
+
+main > h2 {
+  font-size: 0.9rem;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────── */
+footer {
+  padding: var(--rhythm) 0;
+  border-top: 1px solid var(--color-subtle);
+  font-size: 0.875rem;
+  margin-top: calc(2 * var(--rhythm));
+}
+
+footer nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: var(--rhythm);
+  flex-wrap: wrap;
+}
+
+footer nav a,
+footer nav span {
+  color: var(--color-fg);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+footer nav a:hover {
+  color: var(--color-h1);
+  text-decoration: underline;
+}
+
+footer nav h2 {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-fg);
+  margin-bottom: calc(0.5 * var(--rhythm));
+}
+
+footer p {
+  margin-top: calc(0.5 * var(--rhythm));
+  margin-bottom: 0;
+  color: var(--color-fg);
+  font-size: 0.875rem;
+}
+
+/* ── Main contents nav (home page page list) ─────────────────────── */
+#main-contents nav a,
+#main-contents nav span {
+  text-transform: uppercase;
+}
+
+#main-contents nav ul {
+  list-style: none;
+  padding: 0;
+  display: block;
+}
+
+#main-contents nav li {
+  margin-bottom: var(--rhythm);
+}
+
+#main-contents nav p {
+  margin-top: calc(0.25 * var(--rhythm));
+  margin-bottom: 0;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  body {
+    padding: 0 calc(0.75 * var(--rhythm));
+  }
+
+  header nav {
+    gap: calc(0.75 * var(--rhythm));
+  }
+}
