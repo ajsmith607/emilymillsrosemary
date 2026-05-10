@@ -1,15 +1,15 @@
 /* ── Scale & rhythm ─────────────────────────────────────────────── */
 :root {
-  --scale: 1.25;
+  --scale: 1.618;
 }
 
 html {
-  font-size: calc(16px * var(--scale));
+  font-size: calc(12.36px * var(--scale));
 }
 
 /* ── Custom properties ──────────────────────────────────────────── */
 :root {
-  --rhythm: 1.7rem;
+  --rhythm: 1.618rem;
 
   --color-bg:      #F2EFE8;
   --color-fg:      #5A5E6E;
@@ -80,7 +80,7 @@ h3, h4, h5, h6 {
   font-weight: 400;
   font-size: 1rem;
   line-height: var(--rhythm);
-  margin-top: calc(1.7 * var(--rhythm));
+  margin-top: calc(2 * var(--rhythm));
   margin-bottom: calc(0.5 * var(--rhythm));
 }
 
@@ -164,7 +164,7 @@ pre {
   background: rgba(42, 46, 58, 0.06);
   border-radius: 4px;
   overflow-x: auto;
-  line-height: calc(1.5 * var(--rhythm));
+  line-height: var(--rhythm);
 }
 
 pre code {
