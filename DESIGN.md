@@ -109,7 +109,8 @@ This is **markdown** with [links](#).
 ### npm Scripts
 | Command | Action |
 |---|---|
-| `npm run build` | One-shot build to `_site/` |
+| `npm run build` | One-shot build to `docs/` (local paths) |
+| `npm run deploy` | One-shot build to `docs/` with GitHub Pages path prefix |
 | `npm start` | Dev server with live reload |
 
 
