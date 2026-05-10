@@ -106,10 +106,25 @@ This is **markdown** with [links](#).
 {{ copy | md | safe }}
 ```
 
+### GitHub Pages Path Handling
+Because GitHub Pages serves the site from a subdirectory (`/emilymillsrosemary/`), all internal paths must be prefixed at build time. Two mechanisms handle this:
+
+**Nunjucks templates** use Eleventy's built-in `url` filter, which prepends `pathPrefix`:
+```njk
+<link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+```
+
+**CSS** cannot use Nunjucks filters, so font references use a relative path instead of an absolute one. From `css/style.css`, the fonts directory is one level up:
+```css
+src: url("../fonts/CormorantGaramond-LightItalic.ttf") format("truetype");
+```
+
+`pathPrefix` is read from the `PATH_PREFIX` environment variable (default `/`), set in `.eleventy.js` and returned in the config object. The `deploy` script sets it to `/emilymillsrosemary/` for GitHub Pages builds.
+
 ### npm Scripts
 | Command | Action |
 |---|---|
-| `npm run build` | One-shot build to `docs/` (local paths) |
+| `npm run build` | One-shot build to `docs/` (local paths and custom domains) |
 | `npm run deploy` | One-shot build to `docs/` with GitHub Pages path prefix |
 | `npm start` | Dev server with live reload |
 
