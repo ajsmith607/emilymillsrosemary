@@ -44,7 +44,7 @@ body {
 /* ── Font ───────────────────────────────────────────────────────── */
 @font-face {
   font-family: "Cormorant Garamond";
-  src: url("/fonts/CormorantGaramond-LightItalic.ttf") format("truetype");
+  src: url("../fonts/CormorantGaramond-LightItalic.ttf") format("truetype");
   font-weight: 300;
   font-style: italic;
   font-display: swap;
