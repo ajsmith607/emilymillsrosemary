@@ -1,5 +1,7 @@
 const markdownIt = require("markdown-it");
 
+const pathPrefix = process.env.PATH_PREFIX || "/";
+
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/fonts");
@@ -23,15 +25,17 @@ module.exports = function(eleventyConfig) {
       const label = p.data.title || (slug ? slug[0].toUpperCase() + slug.slice(1) : "Home");
       const desc = showDescriptions && p.data.description
         ? `\n      <p>${p.data.description}</p>` : "";
+      const prefix = pathPrefix.replace(/\/$/, "");
       return p.url === currentUrl
         ? `<li><span>${label}</span>${desc}</li>`
-        : `<li><a href="${p.url}">${label}</a>${desc}</li>`;
+        : `<li><a href="${prefix}${p.url}">${label}</a>${desc}</li>`;
     }).join("\n    ");
     const heading = title ? `<h2>${title}</h2>\n  ` : "";
     return `<nav>\n  ${heading}<ul>\n    ${items}\n  </ul>\n</nav>`;
   });
 
   return {
+    pathPrefix,
     markdownTemplateEngine: "njk",
     dir: {
       input: "src",
