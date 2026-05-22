@@ -299,7 +299,7 @@ footer nav ul {
 
 footer nav a,
 footer nav span {
-  color: var(--color-fg);
+  color: var(--color-h2);
   text-decoration: none;
   text-transform: uppercase;
 }
